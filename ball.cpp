@@ -10,7 +10,7 @@ Ball::Ball(qreal x, qreal y,
     acceleration.setX(0);
     acceleration.setY(0);
 
-    ttl = 48;
+    //ttl = 48;
 }
 
 void Ball::advance(int phase)
