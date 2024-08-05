@@ -9,6 +9,8 @@ Ball::Ball(qreal x, qreal y,
     qDebug() << "Ball constructed!";
     acceleration.setX(0);
     acceleration.setY(0);
+
+    ttl = 48;
 }
 
 void Ball::advance(int phase)
@@ -16,8 +18,8 @@ void Ball::advance(int phase)
     if(phase == 0)
         return;
 
-    position.setX(pos().x());
-    position.setY(pos().y());
+    //position.setX(pos().x());
+    //position.setY(pos().y());
 
     position += velocity;
     velocity += acceleration;
@@ -32,30 +34,12 @@ void Ball::advance(int phase)
         position.setX(300);
 
 
-    setPos(position.toPointF());
-}
-
-void Ball::keyPressEvent(QKeyEvent *event)
-{
-    qDebug() << "Key Press Event in Ball";
-
-    if( event->key() == Qt::Key_Left){
-        position.setX(position.x()-40);
-    }
-    if( event->key() == Qt::Key_Right){
-        position.setX(position.x()+40);
-    }
-    if( event->key() == Qt::Key_Up){
-        position.setY(position.y()-40);
-    }
-    if( event->key() == Qt::Key_Down){
-        position.setY(position.y()+40);
-    }
-    if( event->key() == Qt::Key_R){
-        position.setX(0);
-        position.setY(0);
-    }
+    //this->scene()->addItem(new Ball());
 
     setPos(position.toPointF());
 
+    //if()
+    //if(ttl-- == 0){
+        // delete from scene
+    //}
 }

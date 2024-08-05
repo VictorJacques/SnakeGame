@@ -6,6 +6,7 @@
 #include <QGraphicsView>
 #include <QtWidgets>
 #include "ball.h"
+#include "snakescene.h"
 
 class SnakeWindow : public QWidget
 {
@@ -16,7 +17,7 @@ public:
     ~SnakeWindow();
 
 private:
-    QGraphicsScene * _scene;
+    SnakeScene * _scene;
     QGraphicsView  * _view;
 
     Ball           * _ball;
