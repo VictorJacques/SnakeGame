@@ -11,8 +11,6 @@ SnakeWindow::SnakeWindow(QWidget *parent)
 
     QGraphicsRectItem * Playable = _scene->addRect(-300,300,600,-600);
     Playable->setZValue(10);
-
-
     QGraphicsLineItem * x_axis = _scene->addLine(-400, -20, 400, -20);
     x_axis->setZValue(10);
     QGraphicsLineItem * x_axis2 = _scene->addLine(-400, 20, 400, 20);
