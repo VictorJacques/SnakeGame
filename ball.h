@@ -11,13 +11,15 @@ public:
     Ball(qreal x, qreal y, qreal width, qreal height, QGraphicsItem *parent = nullptr);
     void advance(int phase) override;
 
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
+    void moveBy(QVector2D dir) { position += dir; }
+    void setVelocity(QVector2D vel) { velocity = vel; }
 
 private:
     QVector2D position;
     QVector2D velocity;
     QVector2D acceleration;
+
+    unsigned int ttl;
 
 };
 

@@ -11,10 +11,12 @@ CONFIG += c++17
 SOURCES += \
     ball.cpp \
     main.cpp \
+    snakescene.cpp \
     snakewindow.cpp
 
 HEADERS += \
     ball.h \
+    snakescene.h \
     snakewindow.h
 
 FORMS +=

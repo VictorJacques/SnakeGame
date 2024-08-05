@@ -1,11 +1,17 @@
 #include "snakewindow.h"
+#include "snakescene.h"
 
 SnakeWindow::SnakeWindow(QWidget *parent)
     : QWidget(parent)
 {
-    _scene = new QGraphicsScene();
-    _scene->setBackgroundBrush(Qt::white);
+    _scene = new SnakeScene();
+    _scene->setBackgroundBrush(QColor(173,204,96,255));
     //_scene->setSceneRect(-300,-300,600,600);
+
+
+    QGraphicsRectItem * Playable = _scene->addRect(-300,300,600,-600);
+    Playable->setZValue(10);
+
 
     QGraphicsLineItem * x_axis = _scene->addLine(-400, -20, 400, -20);
     x_axis->setZValue(10);
@@ -24,7 +30,7 @@ SnakeWindow::SnakeWindow(QWidget *parent)
 
     //QGraphicsEllipseItem *ball = _scene->addEllipse(QRectF(-50, -50, 100, 100));
     //ball->setBrush(Qt::blue);
-    _ball = new Ball(-10,-10,20,20);
+    /*_ball = new Ball(-10,-10,20,20);
     _ball->setBrush(Qt::green);
     _scene->addItem(_ball);
     QPen mPen;
@@ -36,15 +42,14 @@ SnakeWindow::SnakeWindow(QWidget *parent)
 
     _ball->setFlag(QGraphicsItem::ItemIsMovable);
     _ball->setFlag(QGraphicsItem::ItemIsFocusable);
-
+    _ball->setFocus();
+    */
 
     this->width();
     this->height();
 
     QGraphicsRectItem * rect = new QGraphicsRectItem(-400,-400,800,800);
     _scene->addItem(rect);
-
-
 
     _view = new QGraphicsView();
     _view->setScene(_scene);
@@ -57,7 +62,7 @@ SnakeWindow::SnakeWindow(QWidget *parent)
 
     _timer = new QTimer;
     QObject::connect(_timer, SIGNAL(timeout()), _scene, SLOT(advance()));
-    _timer->start(1000 / 24);
+    _timer->start(1000 / 2);
 }
 
 SnakeWindow::~SnakeWindow() {}
